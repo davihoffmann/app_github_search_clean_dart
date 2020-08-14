@@ -3,14 +3,14 @@ import 'dart:convert';
 import 'package:app_github_search_clean_dart/modules/search/domain/entities/result_search.dart';
 
 class ResultSearchModel extends ResultSearch {
-  ResultSearchModel({String image, String title, String content})
-      : super(image: image, title: title, content: content);
+  ResultSearchModel({String avatarUrl, String login, String nodeId})
+      : super(avatarUrl: avatarUrl, login: login, nodeId: nodeId);
 
   Map<String, dynamic> toMap() {
     return {
-      'image': image,
-      'title': title,
-      'content': content,
+      'avatarUrl': avatarUrl,
+      'login': login,
+      'nodeId': nodeId,
     };
   }
 
@@ -18,9 +18,9 @@ class ResultSearchModel extends ResultSearch {
     if (map == null) return null;
 
     return ResultSearchModel(
-      image: map['image'],
-      title: map['title'],
-      content: map['content'],
+      avatarUrl: map['avatar_url'],
+      login: map['login'],
+      nodeId: map['node_id'],
     );
   }
 
@@ -31,5 +31,5 @@ class ResultSearchModel extends ResultSearch {
 
   @override
   String toString() =>
-      'ResultSearchModel(image: $image, title: $title, content: $content)';
+      'ResultSearchModel(avatarUrl: $avatarUrl, title: $login, content: $nodeId)';
 }

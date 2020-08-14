@@ -2,6 +2,7 @@ import 'package:app_github_search_clean_dart/app_widget.dart';
 import 'package:app_github_search_clean_dart/modules/search/domain/usecases/search_by_text.dart';
 import 'package:app_github_search_clean_dart/modules/search/external/datasource/github_datasource.dart';
 import 'package:app_github_search_clean_dart/modules/search/infra/repositories/search_repository_impl.dart';
+import 'package:app_github_search_clean_dart/modules/search/presenter/search_bloc.dart';
 import 'package:app_github_search_clean_dart/modules/search/presenter/search_page.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class AppModule extends MainModule {
         Bind((i) => SearchByTextImpl(i.get())),
         Bind((i) => SearchRepositoryImpl(i.get())),
         Bind((i) => GithubDataSource(i.get())),
+        Bind((i) => SearchBloc(i.get())), 
       ];
 
   @override
